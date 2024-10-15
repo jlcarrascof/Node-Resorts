@@ -14,5 +14,8 @@
     "Sequelize"
   ],
   "author": "Javier J. Martínez F. @javiersistemas",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.21.1"
+  }
 }
