@@ -7,7 +7,7 @@ const app = express()
 // Define the route for the root URL
 
 app.get('/', (req, res) => {
-    res.send('Hello World from Express!')
+    res.json({ message: 'Hello, World! from Express' })
 })
 
 app.get('/about', (req, res) => {
