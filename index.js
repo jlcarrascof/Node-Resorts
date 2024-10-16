@@ -4,6 +4,15 @@ const express = require('express')
 
 const app = express()
 
+// Define the route for the root URL
+
+app.get('/', (req, res) => {
+    res.send('Hello World from Express!')
+})
+
+app.get('/about', (req, res) => {
+    res.send('About this page')
+})
 
 
 // Define the port and start the server
