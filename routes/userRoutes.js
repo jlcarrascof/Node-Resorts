@@ -6,8 +6,8 @@ router.get('/', (req, res) => {
     res.json({ message: 'Hello, World! from Express' })
 })
 
-router.get('/about', (req, res) => {
-    res.send('About this page')
+router.post('/about', (req, res) => {
+    res.json({msg: 'Post Message'})
 })
 
 export default router
