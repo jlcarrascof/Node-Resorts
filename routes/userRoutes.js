@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.json({ msg: 'Hello, World! from Express' })
 })
 
-router.post('/about', (req, res) => {
+router.post('/', (req, res) => {
     res.json({ msg: 'Post Message' })
 })
 
