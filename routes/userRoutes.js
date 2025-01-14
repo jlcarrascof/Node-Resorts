@@ -2,12 +2,15 @@ import express from 'express'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', function (req, res) {
     res.json({ msg: 'Hello, World! from Express' })
 })
 
-router.post('/', (req, res) => {
+router.post('/', function(req, res) {
     res.json({ msg: 'Post Message' })
 })
+
+router.route('/')
+    .get()
 
 export default router
