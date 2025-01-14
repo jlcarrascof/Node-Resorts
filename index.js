@@ -6,7 +6,7 @@ import userRoutes from './routes/userRoutes.js'
 
 const app = express()
 
-app.get('/', userRoutes)
+app.use('/', userRoutes)
 
 // Define the port and start the server
 
