@@ -1,5 +1,6 @@
 // const express = require('express') // CommonJS
 import express from 'express' // ES2015 module
+import userRoutes from './routes/userRoutes'
 
 // Create express app
 
