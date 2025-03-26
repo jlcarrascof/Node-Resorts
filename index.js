@@ -11,7 +11,7 @@ app.use('view_engine', 'pug')
 app.set('views', './views')
 
 // Define routes
-app.use('/', userRoutes)
+app.use('/auth', userRoutes)
 
 // Define the port and start the server
 
