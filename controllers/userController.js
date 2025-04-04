@@ -3,3 +3,7 @@ const formLogin = (req, res) => {
         autenticado: false
     })
 }
+
+export {
+    formLogin
+}
