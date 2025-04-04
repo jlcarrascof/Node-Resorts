@@ -4,8 +4,13 @@ const formLogin = (req, res) => {
     })
 }
 
+const formRegister = (req, res) => {
+    res.render('auth/register.pug', {
 
+    })
+}
 
 export {
-    formLogin
+    formLogin,
+    formRegister
 }
