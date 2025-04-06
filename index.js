@@ -6,7 +6,12 @@ import userRoutes from './routes/userRoutes.js'
 
 const app = express()
 
-app.use('/', userRoutes)
+// Define the view engine
+app.set('view_engine', 'pug')
+app.set('views', './views')
+
+// Define routes
+app.use('/auth', userRoutes)
 
 // Define the port and start the server
 
