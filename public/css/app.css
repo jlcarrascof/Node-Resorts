@@ -479,3 +479,7 @@ video {
 .text-center {
   text-align: center;
 }
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
