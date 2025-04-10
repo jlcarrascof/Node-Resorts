@@ -13,7 +13,6 @@ app.set('views', './views')
 // Public folder for static files
 app.use(express.static('public'))
 
-
 // Define routes
 app.use('/auth', userRoutes)
 
