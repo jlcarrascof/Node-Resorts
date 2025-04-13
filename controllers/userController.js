@@ -1,6 +1,6 @@
 const formLogin = (req, res) => {
     res.render('auth/login.pug', {
-
+        pagina: 'Iniciar Sesión'
     })
 }
 
