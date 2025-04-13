@@ -10,7 +10,14 @@ const formRegister = (req, res) => {
     })
 }
 
+const formForgotPassword = (req, res) => {
+    res.render('auth/register.pug', {
+        pagina: 'Crear cuenta'
+    })
+}
+
 export {
     formLogin,
-    formRegister
+    formRegister,
+    formForgotPassword
 }
