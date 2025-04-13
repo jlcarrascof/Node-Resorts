@@ -11,8 +11,8 @@ const formRegister = (req, res) => {
 }
 
 const formForgotPassword = (req, res) => {
-    res.render('auth/register.pug', {
-        pagina: 'Crear cuenta'
+    res.render('auth/forgot-password.pug', {
+        pagina: 'Recuperar contraseña'
     })
 }
 
