@@ -10,6 +10,10 @@ const formRegister = (req, res) => {
     })
 }
 
+const Register = (req, res) => {
+
+}
+
 const formForgotPassword = (req, res) => {
     res.render('auth/forgot-password.pug', {
         pagina: 'Recuperar contraseña'
@@ -19,5 +23,6 @@ const formForgotPassword = (req, res) => {
 export {
     formLogin,
     formRegister,
+    Register,
     formForgotPassword
 }
