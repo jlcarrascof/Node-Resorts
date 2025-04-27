@@ -11,7 +11,7 @@ const formRegister = (req, res) => {
 }
 
 const Register = (req, res) => {
-
+    console.log("Registering user...")
 }
 
 const formForgotPassword = (req, res) => {
