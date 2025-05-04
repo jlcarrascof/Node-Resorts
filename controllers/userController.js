@@ -1,3 +1,4 @@
+import { check, validationResult } from 'express-validator'
 import User from '../models/User.js'
 
 const formLogin = (req, res) => {
@@ -13,6 +14,11 @@ const formRegister = (req, res) => {
 }
 
 const Register = async (req, res) => {
+    // Validate the request body
+    await check('nombre').notEmpty().withMessage('El nombre es obligatorio').run(req)
+
+    let result = validationResult(req)
+
     const user = await User.create(req.body)
 
     res.json(user)
