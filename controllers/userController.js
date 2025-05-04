@@ -23,9 +23,13 @@ const Register = async (req, res) => {
     let result = validationResult(req)
 
     // Check if there are validation errors
-
-    res.json(result.array())
-
+    if (!result.isEmpty()) {
+        // If there are errors, return the registration form with error messages
+        return res.render('auth/register.pug', {
+            pagina: 'Crear cuenta',
+            errores: result.array(),
+        })
+    }
 
     const user = await User.create(req.body)
 
