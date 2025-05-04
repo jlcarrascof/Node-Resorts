@@ -17,6 +17,7 @@ const Register = async (req, res) => {
     // Validate the request body
     await check('nombre').notEmpty().withMessage('El nombre es obligatorio').run(req)
     await check('email').isEmail().withMessage('No tiene formato de correo electrónico').run(req)
+    await check('password').isLength({ min: 6 }).withMessage('El password debe tener al menos 6 caracteres').run(req)
 
     let result = validationResult(req)
 
