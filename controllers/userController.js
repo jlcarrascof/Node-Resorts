@@ -1,3 +1,5 @@
+import User from '../models/User.js'
+
 const formLogin = (req, res) => {
     res.render('auth/login.pug', {
         pagina: 'Iniciar Sesión'
@@ -10,8 +12,10 @@ const formRegister = (req, res) => {
     })
 }
 
-const Register = (req, res) => {
-    console.log(req.body)
+const Register = async (req, res) => {
+    const user = await User.create(req.body)
+
+    res.json(user)
 }
 
 const formForgotPassword = (req, res) => {
