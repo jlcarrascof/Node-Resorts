@@ -19,6 +19,9 @@ const Register = async (req, res) => {
 
     let result = validationResult(req)
 
+    res.json(result.array())
+
+
     const user = await User.create(req.body)
 
     res.json(user)
