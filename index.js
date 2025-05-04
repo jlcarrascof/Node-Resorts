@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 // Connect to the database
 try {
   await db.authenticate()
+  db.sync() // Synchronize the models with the database
   console.log('Database connected...')
 } catch (error) {
   console.log(error)
