@@ -18,8 +18,11 @@ const Register = async (req, res) => {
     await check('nombre').notEmpty().withMessage('El nombre es obligatorio').run(req)
     await check('email').isEmail().withMessage('No tiene formato de correo electrónico').run(req)
     await check('password').isLength({ min: 6 }).withMessage('El password debe tener al menos 6 caracteres').run(req)
+    await check('repetir_password').equals('password').withMessage('Los passwords no son iguales').run(req)
 
     let result = validationResult(req)
+
+    // Check if there are validation errors
 
     res.json(result.array())
 
