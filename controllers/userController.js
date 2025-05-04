@@ -16,6 +16,7 @@ const formRegister = (req, res) => {
 const Register = async (req, res) => {
     // Validate the request body
     await check('nombre').notEmpty().withMessage('El nombre es obligatorio').run(req)
+    await check('email').isEmail().withMessage('No tiene formato de correo electrónico').run(req)
 
     let result = validationResult(req)
 
