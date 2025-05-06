@@ -19,7 +19,7 @@ block contenido
 
                     div
                         label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="email") Correo Electrónico
-                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Correo Electrónico" type="email" name="email")
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Correo Electrónico" type="email" name="email" value= usuario ?  usuario.email : '')
 
                     div
                         label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="password") Contraseña
