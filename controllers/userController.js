@@ -28,6 +28,10 @@ const Register = async (req, res) => {
         return res.render('auth/register.pug', {
             pagina: 'Crear cuenta',
             errores: result.array(),
+            usuario: {
+                nombre: req.body.nombre,
+                email: req.body.email
+            }
         })
     }
 
