@@ -9,7 +9,11 @@ const formLogin = (req, res) => {
 
 const formRegister = (req, res) => {
     res.render('auth/register.pug', {
-        pagina: 'Crear cuenta'
+        pagina: 'Crear cuenta',
+        usuario: {
+            nombre: '',
+            email: ''
+        },
     })
 }
 
