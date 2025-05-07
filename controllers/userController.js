@@ -37,6 +37,10 @@ const Register = async (req, res) => {
         })
     }
 
+    // Verify if the user already exists
+
+    
+
     const user = await User.create(req.body)
 
     res.json(user)
