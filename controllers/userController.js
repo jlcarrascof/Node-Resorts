@@ -39,10 +39,10 @@ const Register = async (req, res) => {
 
     // Verify if the user already exists
 
+    const { nombre, email, password } = req.body
+
     const existUser = await User.findOne({
-        where: {
-            email: req.body.email
-        }
+        where: { email }
     })
 
     if (existUser) {
