@@ -39,11 +39,15 @@ const Register = async (req, res) => {
 
     // Verify if the user already exists
 
-    
+    const existUser = await User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
 
-    const user = await User.create(req.body)
+    console.log(existUser)
 
-    res.json(user)
+    return
 }
 
 const formForgotPassword = (req, res) => {
