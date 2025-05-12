@@ -65,6 +65,11 @@ const Register = async (req, res) => {
         token: generateID(),
     })
 
+    // Show confirmation message
+    
+
+
+
 }
 
 const formForgotPassword = (req, res) => {
