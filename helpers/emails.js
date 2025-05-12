@@ -12,7 +12,21 @@ const emailRegistro = async(datos) => {
       }
     });
 
-    console.log(datos)
+    const { email, nombre, token } = datos
+
+    // Send email
+
+    await transport.sendMail({
+        from: 'Global Realtors - Servicios Inmobiliarios',
+        to: email,
+        subject: 'Confirma tu cuenta en Global Realtors',
+        text: 'Confirma tu cuenta en Global Realtors',
+        html: `<p>Hola ${nombre}, comprueba tu cuenta en APV.</p>
+            <p>Tu cuenta ya está lista, solo debes confirmarla en el siguiente enlace:</p>
+            <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Confirmar cuenta</a>
+            <p>Si tú no creaste esta cuenta, puedes ignorar este mensaje.</p>
+        `
+    })
 }
 
 export {
