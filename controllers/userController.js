@@ -65,7 +65,6 @@ const Register = async (req, res) => {
         token: generateID(),
     })
 
-
 }
 
 const formForgotPassword = (req, res) => {
