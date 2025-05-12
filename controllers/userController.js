@@ -56,9 +56,15 @@ const Register = async (req, res) => {
         })
     }
 
-    console.log(existUser)
+    // Create the user
+    await User.create({
+        nombre,
+        email,
+        password,
+        token: 123,
+    })
 
-    return
+
 }
 
 const formForgotPassword = (req, res) => {
