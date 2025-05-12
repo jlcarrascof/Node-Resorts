@@ -11,6 +11,8 @@ const emailRegistro = async(datos) => {
         pass: process.env.EMAIL_PASS
       }
     });
+
+    console.log(datos)
 }
 
 export {
