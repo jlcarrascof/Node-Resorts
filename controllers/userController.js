@@ -67,6 +67,11 @@ const Register = async (req, res) => {
     })
 
     // Send confirmation email
+    emailRegistro({
+        nombre: user.nombre,
+        email: user.email,
+        token: user.token
+    })
 
     // Show confirmation message
 
