@@ -21,9 +21,12 @@ const emailRegistro = async(datos) => {
         to: email,
         subject: 'Confirma tu cuenta en Global Realtors',
         text: 'Confirma tu cuenta en Global Realtors',
-        html: `<p>Hola ${nombre}, comprueba tu cuenta en APV.</p>
+        html: `<p>Hola ${nombre}, comprueba tu cuenta en Global .</p>
+
             <p>Tu cuenta ya está lista, solo debes confirmarla en el siguiente enlace:</p>
-            <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Confirmar cuenta</a>
+
+            <a href="">Confirmar cuenta</a>
+
             <p>Si tú no creaste esta cuenta, puedes ignorar este mensaje.</p>
         `
     })
