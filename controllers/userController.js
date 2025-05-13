@@ -77,10 +77,8 @@ const Register = async (req, res) => {
 
     res.render('templates/message.pug', {
         pagina: 'Cuenta creada',
-        mensaje: 'Se ha creado la cuenta correctamente, revisa tu correo para confirmar tu cuenta.',
-        error: false
+        mensaje: 'Se ha creado la cuenta correctamente, revisa tu correo para confirmar tu cuenta.'
     })
-
 
 }
 
