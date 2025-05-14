@@ -83,7 +83,7 @@ const Register = async (req, res) => {
 
 // Function to confirm the user account
 
-const checkAccount = (req, res) => {
+const Confirm = (req, res) => {
     console.log('Confirming account...')
 }
 
@@ -99,5 +99,5 @@ export {
     formRegister,
     Register,
     formForgotPassword,
-    checkAccount
+    Confirm
 }
