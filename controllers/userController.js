@@ -83,14 +83,17 @@ const Register = async (req, res) => {
 
 // Function to confirm the user account
 
-const Confirm = (req, res) => {
+const Confirm = async (req, res) => {
     const { token } = req.params
-    console.log(token)
 
     // Verify if the token is valid
+    const user = await User.findOne({ where: { token } })
+    console.log(user)
 
     // Confirm the user account
+    if (!user) {
 
+    }
 }
 
 
