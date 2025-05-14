@@ -79,8 +79,14 @@ const Register = async (req, res) => {
         pagina: 'Cuenta creada',
         mensaje: 'Se ha creado la cuenta correctamente, revisa tu correo para confirmar tu cuenta.'
     })
-
 }
+
+// Function to confirm the user account
+
+const checkAccount = (req, res) => {
+    console.log('Confirming account...')
+}
+
 
 const formForgotPassword = (req, res) => {
     res.render('auth/forgot-password.pug', {
@@ -92,5 +98,6 @@ export {
     formLogin,
     formRegister,
     Register,
-    formForgotPassword
+    formForgotPassword,
+    checkAccount
 }

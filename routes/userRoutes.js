@@ -8,6 +8,8 @@ router.get('/login', formLogin)
 router.get('/register', formRegister)
 router.post('/register', Register)
 
+router.get('/confirm', confirm)
+
 router.get('/forgot-password', formForgotPassword)
 
 export default router
