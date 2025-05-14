@@ -8,7 +8,7 @@ router.get('/login', formLogin)
 router.get('/register', formRegister)
 router.post('/register', Register)
 
-router.get('/confirm', Confirm)
+router.get('/confirm/:token', Confirm)
 
 router.get('/forgot-password', formForgotPassword)
 

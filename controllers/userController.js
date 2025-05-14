@@ -84,7 +84,8 @@ const Register = async (req, res) => {
 // Function to confirm the user account
 
 const Confirm = (req, res) => {
-    console.log('Confirming account...')
+    const token = req.params
+    console.log(token)
 }
 
 
