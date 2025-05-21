@@ -91,7 +91,11 @@ const Confirm = async (req, res) => {
 
     // Confirm the user account
     if (!user) {
-
+        return res.render('auth/confirm-account.pug', {
+            pagina: 'Error al confirmar la cuenta',
+            mensaje: 'Hubo un error al confirmar tu cuenta, intenta de nuevo.',
+            error: true
+        })
     }
 }
 
