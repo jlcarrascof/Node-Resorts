@@ -89,7 +89,7 @@ const Confirm = async (req, res) => {
     // Verify if the token is valid
     const user = await User.findOne({ where: { token } })
 
-    // Confirm the user account
+    // Check a wrong token
     if (!user) {
         return res.render('auth/confirm-account.pug', {
             pagina: 'Error al confirmar la cuenta',
@@ -97,6 +97,18 @@ const Confirm = async (req, res) => {
             error: true
         })
     }
+
+    // Confirm the user account
+    user.token = null
+    user.confirmado = true
+    await user.save()
+
+    return res.render('auth/confirm-account.pug', {
+        pagina: 'Cuenta confirmada',
+        mensaje: 'La cuenta se ha confirmado correctamente.',
+        error: false
+    })
+
 }
 
 
