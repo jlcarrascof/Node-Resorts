@@ -88,7 +88,6 @@ const Confirm = async (req, res) => {
 
     // Verify if the token is valid
     const user = await User.findOne({ where: { token } })
-    console.log(user)
 
     // Confirm the user account
     if (!user) {
