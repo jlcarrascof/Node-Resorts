@@ -32,6 +32,7 @@ const Register = async (req, res) => {
         // If there are errors, return the registration form with error messages
         return res.render('auth/register.pug', {
             pagina: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errores: result.array(),
             usuario: {
                 nombre: req.body.nombre,
