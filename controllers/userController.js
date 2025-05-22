@@ -12,6 +12,7 @@ const formLogin = (req, res) => {
 const formRegister = (req, res) => {
     res.render('auth/register.pug', {
         pagina: 'Crear cuenta',
+        csrfToken: req.csrfToken(), // CSRF token for the form
     })
 }
 
