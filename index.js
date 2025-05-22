@@ -1,5 +1,7 @@
 // const express = require('express') // CommonJS
 import express from 'express' // ES2015 module
+import csrf from 'csurf' // CSRF protection
+import cookieParser from 'cookie-parser' // Cookie parser
 import userRoutes from './routes/userRoutes.js'
 import db from './config/db.js' // Import the database configuration
 
@@ -9,6 +11,12 @@ const app = express()
 
 // Handle form data
 app.use(express.urlencoded({ extended: true }))
+
+// Activate cookie parser
+app.use(cookieParser())
+
+// CSRF protection
+app.use(csrf({ cookie: true }))
 
 // Connect to the database
 try {
