@@ -52,6 +52,7 @@ const Register = async (req, res) => {
     if (existUser) {
         return res.render('auth/register.pug', {
             pagina: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errores: [ { msg: 'El Usuario ya está registrado.' } ],
             usuario: {
                 nombre: req.body.nombre,
