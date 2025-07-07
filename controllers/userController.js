@@ -121,10 +121,15 @@ const formForgotPassword = (req, res) => {
     })
 }
 
+const resetPassword = (req, res) => {
+
+}
+
 export {
     formLogin,
     formRegister,
     Register,
     formForgotPassword,
-    Confirm
+    Confirm,
+    resetPassword
 }
