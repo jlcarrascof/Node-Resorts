@@ -25,8 +25,6 @@ const Register = async (req, res) => {
 
     let result = validationResult(req)
 
-    console.log(result)
-
     // Check if there are validation errors
     if (!result.isEmpty()) {
         // If there are errors, return the registration form with error messages
@@ -122,8 +120,21 @@ const formForgotPassword = (req, res) => {
     })
 }
 
-const resetPassword = (req, res) => {
+const resetPassword = async (req, res) => {
+    // Validate the request body
+    await check('email').isEmail().withMessage('No tiene formato de correo electrónico').run(req)
 
+    let result = validationResult(req)
+
+    // Check if there are validation errors
+    if (!result.isEmpty()) {
+        // If there are errors, return the registration form with error messages
+        return res.render('auth/forgot-password.pug', {
+            pagina: 'Recuperar contraseña',
+            csrfToken: req.csrfToken(),
+            errores: result.array(),
+        })
+    }
 }
 
 export {
