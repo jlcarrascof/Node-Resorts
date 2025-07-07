@@ -117,7 +117,8 @@ const Confirm = async (req, res) => {
 
 const formForgotPassword = (req, res) => {
     res.render('auth/forgot-password.pug', {
-        pagina: 'Recuperar contraseña'
+        pagina: 'Recuperar contraseña',
+        csrfToken: req.csrfToken()
     })
 }
 
