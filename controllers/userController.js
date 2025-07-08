@@ -137,6 +137,8 @@ const resetPassword = async (req, res) => {
     }
 }
 
+// Search the user by email
+
 export {
     formLogin,
     formRegister,
