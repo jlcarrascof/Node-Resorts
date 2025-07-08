@@ -135,9 +135,21 @@ const resetPassword = async (req, res) => {
             errores: result.array(),
         })
     }
-}
 
-// Search the user by email
+    // Search the user by email
+
+    const { email } = req.body
+    const user = await User.findOne({ where: { email } })
+
+    if (!user) {
+        return res.render('auth/forgot-password.pug', {
+            pagina: 'Recuperar contraseña',
+            csrfToken: req.csrfToken(),
+            errores: [ { msg: 'El Email no pertenece a ninguna cuenta.' } ],
+        })
+    }
+
+}
 
 export {
     formLogin,
