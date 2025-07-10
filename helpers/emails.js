@@ -56,9 +56,9 @@ const emailOlvidoPassword = async(datos) => {
 
             <p>Sigue el siguiente enlace para generar un password nuevo:</p>
 
-            <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/confirm/${token}">Confirmar cuenta</a>
+            <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/forgot-password/${token}">Restablecer password</a>
 
-            <p>Si tú no creaste esta cuenta, puedes ignorar este mensaje.</p>
+            <p>Si tú no solicitaste este cambio de password, puedes ignorar este mensaje.</p>
         `
     })
 }
