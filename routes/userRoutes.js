@@ -1,6 +1,6 @@
 import express from 'express'
-import { formLogin, formRegister, formForgotPassword, Register, Confirm, resetPassword } from '../controllers/userController.js'
-import { check } from 'express-validator'
+import { formLogin, formRegister, formForgotPassword, Register, Confirm, resetPassword, checkToken, newPassword } from '../controllers/userController.js'
+// import { check } from 'express-validator'
 
 const router = express.Router()
 
