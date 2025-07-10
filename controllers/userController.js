@@ -149,6 +149,14 @@ const resetPassword = async (req, res) => {
         })
     }
 
+    // Generate a new token
+    user.token = generateID()
+    await user.save()
+
+    // Send email with the new token
+
+
+    // Show a message
 }
 
 export {
