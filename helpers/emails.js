@@ -64,5 +64,6 @@ const emailOlvidoPassword = async(datos) => {
 }
 
 export {
-    emailRegistro
+    emailRegistro,
+    emailOlvidoPassword
 }
