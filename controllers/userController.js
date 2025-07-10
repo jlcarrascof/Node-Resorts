@@ -154,9 +154,14 @@ const resetPassword = async (req, res) => {
     await user.save()
 
     // Send email with the new token
+    const checkToken = (req, res) =>{
 
+    }
 
     // Show a message
+    const newPassword = (req, res) =>{
+
+    }
 }
 
 export {
@@ -165,5 +170,7 @@ export {
     Register,
     formForgotPassword,
     Confirm,
-    resetPassword
+    resetPassword,
+    checkToken,
+    newPassword
 }
