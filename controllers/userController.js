@@ -155,17 +155,20 @@ const resetPassword = async (req, res) => {
 
     // Send email with the new token
     emailOlvidoPassword({
-        email,
+        email: user.email,
         nombre: user.nombre,
         token: user.token
     })
 
     // Show a message
-
+    res.render('templates/message.pug', {
+        pagina: 'Reestablecer contraseña',
+        mensaje: 'Hemos enviado un email con las instrucciones para reestablecer tu contraseña.'
+    })
 }
 
-const checkToken = (req, res) =>{
-
+const checkToken = (req, res, next) =>{
+    next()
 }
 
 const newPassword = (req, res) =>{
