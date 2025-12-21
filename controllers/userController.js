@@ -12,6 +12,7 @@ const formLogin = (req, res) => {
 const formRegister = (req, res) => {
     res.render('auth/register.pug', {
         pagina: 'Crear cuenta',
+        csrfToken: req.csrfToken(), // CSRF token for the form
     })
 }
 
@@ -31,6 +32,7 @@ const Register = async (req, res) => {
         // If there are errors, return the registration form with error messages
         return res.render('auth/register.pug', {
             pagina: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errores: result.array(),
             usuario: {
                 nombre: req.body.nombre,
@@ -50,6 +52,7 @@ const Register = async (req, res) => {
     if (existUser) {
         return res.render('auth/register.pug', {
             pagina: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errores: [ { msg: 'El Usuario ya está registrado.' } ],
             usuario: {
                 nombre: req.body.nombre,
@@ -79,8 +82,38 @@ const Register = async (req, res) => {
         pagina: 'Cuenta creada',
         mensaje: 'Se ha creado la cuenta correctamente, revisa tu correo para confirmar tu cuenta.'
     })
+}
+
+// Function to confirm the user account
+
+const Confirm = async (req, res) => {
+    const { token } = req.params
+
+    // Verify if the token is valid
+    const user = await User.findOne({ where: { token } })
+
+    // Check a wrong token
+    if (!user) {
+        return res.render('auth/confirm-account.pug', {
+            pagina: 'Error al confirmar la cuenta',
+            mensaje: 'Hubo un error al confirmar tu cuenta, intenta de nuevo.',
+            error: true
+        })
+    }
+
+    // Confirm the user account
+    user.token = null
+    user.confirmado = true
+    await user.save()
+
+    return res.render('auth/confirm-account.pug', {
+        pagina: 'Cuenta confirmada',
+        mensaje: 'La cuenta se ha confirmado correctamente.',
+        error: false
+    })
 
 }
+
 
 const formForgotPassword = (req, res) => {
     res.render('auth/forgot-password.pug', {
@@ -92,5 +125,6 @@ export {
     formLogin,
     formRegister,
     Register,
-    formForgotPassword
+    formForgotPassword,
+    Confirm
 }
