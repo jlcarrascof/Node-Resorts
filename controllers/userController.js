@@ -1,7 +1,7 @@
 import { check, validationResult } from 'express-validator'
 import User from '../models/User.js'
 import { generateID } from '../helpers/token.js'
-import { emailRegistro } from '../helpers/emails.js'
+import { emailRegistro, emailOlvidoPassword } from '../helpers/emails.js'
 
 const formLogin = (req, res) => {
     res.render('auth/login.pug', {
@@ -24,8 +24,6 @@ const Register = async (req, res) => {
     await check('repetir_password').equals(req.body.password).withMessage('Los passwords no son iguales').run(req)
 
     let result = validationResult(req)
-
-    console.log(result)
 
     // Check if there are validation errors
     if (!result.isEmpty()) {
@@ -117,14 +115,74 @@ const Confirm = async (req, res) => {
 
 const formForgotPassword = (req, res) => {
     res.render('auth/forgot-password.pug', {
-        pagina: 'Recuperar contraseña'
+        pagina: 'Recuperar contraseña',
+        csrfToken: req.csrfToken()
     })
 }
+
+const resetPassword = async (req, res) => {
+    // Validate the request body
+    await check('email').isEmail().withMessage('No tiene formato de correo electrónico').run(req)
+
+    let result = validationResult(req)
+
+    // Check if there are validation errors
+    if (!result.isEmpty()) {
+        // If there are errors, return the registration form with error messages
+        return res.render('auth/forgot-password.pug', {
+            pagina: 'Recuperar contraseña',
+            csrfToken: req.csrfToken(),
+            errores: result.array(),
+        })
+    }
+
+    // Search the user by email
+
+    const { email } = req.body
+    const user = await User.findOne({ where: { email } })
+
+    if (!user) {
+        return res.render('auth/forgot-password.pug', {
+            pagina: 'Recuperar contraseña',
+            csrfToken: req.csrfToken(),
+            errores: [ { msg: 'El Email no pertenece a ninguna cuenta.' } ],
+        })
+    }
+
+    // Generate a new token
+    user.token = generateID()
+    await user.save()
+
+    // Send email with the new token
+    emailOlvidoPassword({
+        email: user.email,
+        nombre: user.nombre,
+        token: user.token
+    })
+
+    // Show a message
+    res.render('templates/message.pug', {
+        pagina: 'Reestablecer contraseña',
+        mensaje: 'Hemos enviado un email con las instrucciones para reestablecer tu contraseña.'
+    })
+}
+
+const checkToken = (req, res, next) =>{
+    next()
+}
+
+const newPassword = (req, res) =>{
+
+}
+
 
 export {
     formLogin,
     formRegister,
     Register,
     formForgotPassword,
-    Confirm
+    Confirm,
+    resetPassword,
+    checkToken,
+    newPassword
 }
