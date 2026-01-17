@@ -28,7 +28,7 @@ try {
 }
 
 // Define the view engine
-app.set('view_engine', 'pug')
+app.set('view engine', 'pug')
 app.set('views', './views')
 
 // Public folder for static files
